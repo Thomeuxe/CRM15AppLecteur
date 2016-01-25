@@ -4,6 +4,13 @@
     <id name="id" type="bigint" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <field name="startdate" type="date" column="startDate" nullable="false"/>
+    <field name="enddate" type="date" column="endDate" nullable="false"/>
+    <field name="valid" type="boolean" column="valid" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
     <field name="reviewId" type="bigint" column="review_id" nullable="false">
       <options>
         <option name="unsigned"/>

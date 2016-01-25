@@ -13,6 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Critic
 {
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="score", type="boolean", nullable=false)
+     */
+    private $score;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", length=65535, nullable=false)
+     */
+    private $content;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="review_id", type="bigint", nullable=false)

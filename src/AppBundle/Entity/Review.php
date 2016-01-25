@@ -13,6 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Review
 {
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="synopsis", type="text", length=65535, nullable=false)
+     */
+    private $synopsis;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="user_id", type="bigint", nullable=false)

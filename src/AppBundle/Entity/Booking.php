@@ -13,6 +13,27 @@ use Doctrine\ORM\Mapping as ORM;
 class Booking
 {
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startDate", type="date", nullable=false)
+     */
+    private $startdate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endDate", type="date", nullable=false)
+     */
+    private $enddate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valid", type="boolean", nullable=false)
+     */
+    private $valid = '0';
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="review_id", type="bigint", nullable=false)

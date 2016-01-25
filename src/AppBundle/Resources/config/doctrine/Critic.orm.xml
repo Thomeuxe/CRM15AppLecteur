@@ -4,6 +4,12 @@
     <id name="id" type="bigint" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <field name="score" type="boolean" column="score" nullable="false"/>
+    <field name="content" type="text" column="content" length="65535" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
     <field name="reviewId" type="bigint" column="review_id" nullable="false">
       <options>
         <option name="unsigned"/>

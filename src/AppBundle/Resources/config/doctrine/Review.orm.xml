@@ -4,6 +4,16 @@
     <id name="id" type="bigint" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <field name="title" type="string" column="title" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="synopsis" type="text" column="synopsis" length="65535" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
     <field name="userId" type="bigint" column="user_id" nullable="false">
       <options>
         <option name="unsigned"/>
