@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Booking
+ *
+ * @ORM\Table(name="Booking")
+ * @ORM\Entity
+ */
+class Booking
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startDate", type="date", nullable=false)
+     */
+    private $startdate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endDate", type="date", nullable=false)
+     */
+    private $enddate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valid", type="boolean", nullable=false)
+     */
+    private $valid = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="review_id", type="bigint", nullable=false)
+     */
+    private $reviewId;
+
+
+}
+

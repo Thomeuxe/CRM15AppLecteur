@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Booking
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="startDate", type="date", nullable=false)
@@ -40,15 +49,111 @@ class Booking
      */
     private $reviewId;
 
+
+
     /**
-     * @var integer
+     * Set startdate
      *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @param \DateTime $startdate
+     *
+     * @return Booking
      */
-    private $id;
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
 
+        return $this;
+    }
 
+    /**
+     * Get startdate
+     *
+     * @return \DateTime
+     */
+    public function getStartdate()
+    {
+        return $this->startdate;
+    }
+
+    /**
+     * Set enddate
+     *
+     * @param \DateTime $enddate
+     *
+     * @return Booking
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return \DateTime
+     */
+    public function getEnddate()
+    {
+        return $this->enddate;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param boolean $valid
+     *
+     * @return Booking
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return boolean
+     */
+    public function getValid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * Set reviewId
+     *
+     * @param integer $reviewId
+     *
+     * @return Booking
+     */
+    public function setReviewId($reviewId)
+    {
+        $this->reviewId = $reviewId;
+
+        return $this;
+    }
+
+    /**
+     * Get reviewId
+     *
+     * @return integer
+     */
+    public function getReviewId()
+    {
+        return $this->reviewId;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
-
