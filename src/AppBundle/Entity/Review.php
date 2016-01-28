@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="Review")
- * @ORM\Entity(repositoryClass="ReviewRepository")
+ * @ORM\Entity
  */
 class Review
 {
@@ -51,6 +51,25 @@ class Review
     */
     private $user;
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->critics = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bookings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set title
@@ -101,17 +120,33 @@ class Review
     }
 
     /**
-     * Get id
+     * Add critic
      *
-     * @return integer
+     * @param \AppBundle\Entity\Critic $critic
+     *
+     * @return Review
      */
-    public function getId()
+    public function addCritic(\AppBundle\Entity\Critic $critic)
     {
-        return $this->id;
+        $this->critics[] = $critic;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove critic
+     *
+     * @param \AppBundle\Entity\Critic $critic
+     */
+    public function removeCritic(\AppBundle\Entity\Critic $critic)
+    {
+        $this->critics->removeElement($critic);
+    }
+
+    /**
+     * Get critics
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCritics()
     {
@@ -119,15 +154,33 @@ class Review
     }
 
     /**
-     * @param mixed $critics
+     * Add booking
+     *
+     * @param \AppBundle\Entity\Booking $booking
+     *
+     * @return Review
      */
-    public function setCritics($critics)
+    public function addBooking(\AppBundle\Entity\Booking $booking)
     {
-        $this->critics = $critics;
+        $this->bookings[] = $booking;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Remove booking
+     *
+     * @param \AppBundle\Entity\Booking $booking
+     */
+    public function removeBooking(\AppBundle\Entity\Booking $booking)
+    {
+        $this->bookings->removeElement($booking);
+    }
+
+    /**
+     * Get bookings
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getBookings()
     {
@@ -135,26 +188,26 @@ class Review
     }
 
     /**
-     * @param mixed $bookings
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Review
      */
-    public function setBookings($bookings)
+    public function setUser(\UserBundle\Entity\User $user)
     {
-        $this->bookings = $bookings;
+        $this->user = $user;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
     }
 }

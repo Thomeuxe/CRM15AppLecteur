@@ -43,12 +43,11 @@ class Booking
     private $valid = '0';
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="review_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Review", inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $reviewId;
+    private $review;
+
 
 
 }
-

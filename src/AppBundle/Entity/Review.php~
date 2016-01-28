@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="Review")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ReviewRepository")
  */
 class Review
 {
@@ -36,12 +36,20 @@ class Review
     private $synopsis;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="bigint", nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Critic", mappedBy="review")
      */
-    private $userId;
+    private $critics;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="review")
+     */
+    private $bookings;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="reviews")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $user;
 
 
 }
-

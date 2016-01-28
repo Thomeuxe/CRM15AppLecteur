@@ -43,6 +43,16 @@ class Critic
 
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set score
      *
      * @param boolean $score
@@ -91,30 +101,26 @@ class Critic
     }
 
     /**
-     * Get id
+     * Set review
      *
-     * @return integer
+     * @param \AppBundle\Entity\Review $review
+     *
+     * @return Critic
      */
-    public function getId()
+    public function setReview(\AppBundle\Entity\Review $review)
     {
-        return $this->id;
+        $this->review = $review;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get review
+     *
+     * @return \AppBundle\Entity\Review
      */
     public function getReview()
     {
         return $this->review;
     }
-
-    /**
-     * @param mixed $review
-     */
-    public function setReview($review)
-    {
-        $this->review = $review;
-    }
-
-
 }
