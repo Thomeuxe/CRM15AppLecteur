@@ -6,11 +6,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -69,10 +69,17 @@ swiftmailer:
     spool:     { type: memory }
 
 easy_admin:
+    site_name: 'AppLecteur'
     entities:
-        - AppBundle\Entity\Review
-        - AppBundle\Entity\Booking
-        - AppBundle\Entity\Critic
+        Reviews:
+            label: 'Fiche Lecture'
+            class: AppBundle\Entity\Review
+        Critiques:
+            label: 'Critiques'
+            class: AppBundle\Entity\Critic
+        Réservations:
+            label: "Réservation page d'accueil"
+            class: AppBundle\Entity\Booking
 
 
 fos_user:
