@@ -36,12 +36,10 @@ class Critic
     private $content;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="review_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Review", inversedBy="critics")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $reviewId;
-
+    private $review;
 
 
     /**
@@ -93,30 +91,6 @@ class Critic
     }
 
     /**
-     * Set reviewId
-     *
-     * @param integer $reviewId
-     *
-     * @return Critic
-     */
-    public function setReviewId($reviewId)
-    {
-        $this->reviewId = $reviewId;
-
-        return $this;
-    }
-
-    /**
-     * Get reviewId
-     *
-     * @return integer
-     */
-    public function getReviewId()
-    {
-        return $this->reviewId;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -125,4 +99,22 @@ class Critic
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    /**
+     * @param mixed $review
+     */
+    public function setReview($review)
+    {
+        $this->review = $review;
+    }
+
+
 }

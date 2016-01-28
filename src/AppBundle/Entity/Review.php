@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="Review")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ReviewRepository")
  */
 class Review
 {
@@ -36,12 +36,20 @@ class Review
     private $synopsis;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="bigint", nullable=false)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Critic", mappedBy="review")
      */
-    private $userId;
+    private $critics;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="review")
+     */
+    private $bookings;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reviews")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $user;
 
 
     /**
@@ -93,30 +101,6 @@ class Review
     }
 
     /**
-     * Set userId
-     *
-     * @param integer $userId
-     *
-     * @return Review
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -124,5 +108,53 @@ class Review
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCritics()
+    {
+        return $this->critics;
+    }
+
+    /**
+     * @param mixed $critics
+     */
+    public function setCritics($critics)
+    {
+        $this->critics = $critics;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBookings()
+    {
+        return $this->bookings;
+    }
+
+    /**
+     * @param mixed $bookings
+     */
+    public function setBookings($bookings)
+    {
+        $this->bookings = $bookings;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 }

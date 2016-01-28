@@ -43,11 +43,10 @@ class Booking
     private $valid = '0';
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="review_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Review", inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $reviewId;
+    private $review;
 
 
 
@@ -124,30 +123,6 @@ class Booking
     }
 
     /**
-     * Set reviewId
-     *
-     * @param integer $reviewId
-     *
-     * @return Booking
-     */
-    public function setReviewId($reviewId)
-    {
-        $this->reviewId = $reviewId;
-
-        return $this;
-    }
-
-    /**
-     * Get reviewId
-     *
-     * @return integer
-     */
-    public function getReviewId()
-    {
-        return $this->reviewId;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -156,4 +131,22 @@ class Booking
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    /**
+     * @param mixed $review
+     */
+    public function setReview($review)
+    {
+        $this->review = $review;
+    }
+
+
 }

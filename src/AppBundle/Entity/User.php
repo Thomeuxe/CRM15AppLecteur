@@ -21,6 +21,11 @@ class User
      */
     private $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="user")
+     */
+    private $reviews;
+
 
 
     /**
@@ -32,4 +37,21 @@ class User
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    /**
+     * @param mixed $reviews
+     */
+    public function setReviews($reviews)
+    {
+        $this->reviews = $reviews;
+    }
+
 }
