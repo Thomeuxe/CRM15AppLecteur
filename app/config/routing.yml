@@ -3,7 +3,8 @@ user:
     prefix:   /account
 
 app:
-    resource: "@AppBundle/Resources/config/routing.yml"
+    resource: "@AppBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 easy_admin_bundle:
