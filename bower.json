@@ -1,0 +1,23 @@
+{
+  "name": "appLecteur",
+  "homepage": "https://github.com/Thomeuxe/CRM15AppLecteur",
+  "authors": [
+    "Thomas Lecoeur <me@thomaslecoeur.com>"
+  ],
+  "description": "CRM15 Symfony3 App",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
