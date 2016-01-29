@@ -15,15 +15,28 @@ class ReviewsController extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
         $reviews = $this->getDoctrine()
             ->getRepository('AppBundle:Review')
             ->findAll();
 
-        return $this->render('review/list.html.twig', array(
+        return $this->render('review/index.html.twig', [
             'reviews' => $reviews,
-        ));
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="review_show")
+     */
+    public function showAction($id)
+    {
+        $review = $this->getDoctrine()
+            ->getRepository('AppBundle:Review')
+            ->findOneById($id);
+
+        return $this->render('review/show.html.twig', [
+            'review' => $review,
+        ]);
     }
 }
