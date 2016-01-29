@@ -164,6 +164,6 @@ class Booking
      */
     public function __toString()
     {
-        return strval($this->getId());
+        return 'Du ' . $this->getStartdate()->format('d/m/Y') . ' au ' . $this->getEnddate()->format('d/m/Y');
     }
 }

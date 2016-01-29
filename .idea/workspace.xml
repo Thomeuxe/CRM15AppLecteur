@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7afc5779-9a9c-4dd4-8f65-cf4f75bb5fdd" name="Default" comment="Reviews : Add show view">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
     </list>
     <ignored path="appLecteur.iws" />
@@ -111,10 +110,10 @@
       <file leaf-file-name="Booking.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.778828">
-              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.7448015">
+              <caret line="166" column="73" selection-start-line="166" selection-start-column="73" selection-end-line="166" selection-end-column="73" />
               <folding>
-                <marker date="1454079505000" expanded="true" signature="150:887" placeholder="{...}" />
+                <marker date="1454079747000" expanded="true" signature="150:887" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -569,7 +568,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
-            <marker date="1454079505000" expanded="true" signature="150:887" placeholder="{...}" />
+            <marker date="1454079747000" expanded="true" signature="150:887" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -620,7 +619,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
           <folding>
-            <marker date="1454079505000" expanded="true" signature="150:887" placeholder="{...}" />
+            <marker date="1454079747000" expanded="true" signature="150:887" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -813,10 +812,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.778828">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.7448015">
+          <caret line="166" column="73" selection-start-line="166" selection-start-column="73" selection-end-line="166" selection-end-column="73" />
           <folding>
-            <marker date="1454079505000" expanded="true" signature="150:887" placeholder="{...}" />
+            <marker date="1454079747000" expanded="true" signature="150:887" placeholder="{...}" />
           </folding>
         </state>
       </provider>
