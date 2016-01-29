@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7afc5779-9a9c-4dd4-8f65-cf4f75bb5fdd" name="Default" comment="Reviews : Add show view">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
     </list>
     <ignored path="appLecteur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +30,8 @@
       <file leaf-file-name="Review.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Review.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="35" column="21" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="21" />
+            <state vertical-scroll-proportion="-12.041667">
+              <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="221" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -60,12 +63,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/review/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7088847">
+            <state vertical-scroll-proportion="-15.625">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +81,8 @@
             <state vertical-scroll-proportion="-2.5324676">
               <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding>
-                <element signature="e#220#231#0#Twig" expanded="true" />
+                <element signature="e#12#26#0#Twig" expanded="false" />
+                <marker date="1454076830000" expanded="true" signature="1046:1103" placeholder="{% if(excerpt|length &gt; excerptMaxLength) ...%}" />
               </folding>
             </state>
           </provider>
@@ -95,20 +101,20 @@
       <file leaf-file-name="Critic.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
+            <state vertical-scroll-proportion="-13.291667">
+              <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="134" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Booking.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Booking.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9432892">
+              <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
               <folding>
-                <marker date="1454021941000" expanded="true" signature="150:885" placeholder="{...}" />
+                <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -136,13 +142,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/review/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/review/single.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/review/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ReviewsController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
       </list>
     </option>
   </component>
@@ -506,7 +512,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#220#231#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="false" />
+            <marker date="1454076830000" expanded="true" signature="1046:1103" placeholder="{% if(excerpt|length &gt; excerptMaxLength) ...%}" />
           </folding>
         </state>
       </provider>
@@ -532,7 +539,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
-            <marker date="1454021941000" expanded="true" signature="150:885" placeholder="{...}" />
+            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -580,7 +587,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
           <folding>
-            <marker date="1454021941000" expanded="true" signature="150:885" placeholder="{...}" />
+            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -686,32 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <marker date="1454021941000" expanded="true" signature="150:885" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Review.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46226415">
@@ -743,7 +724,8 @@
         <state vertical-scroll-proportion="-2.5324676">
           <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding>
-            <element signature="e#220#231#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="false" />
+            <marker date="1454076830000" expanded="true" signature="1046:1103" placeholder="{% if(excerpt|length &gt; excerptMaxLength) ...%}" />
           </folding>
         </state>
       </provider>
@@ -762,9 +744,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/review/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7088847">
+        <state vertical-scroll-proportion="-15.625">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Review.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.041667">
+          <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="221" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.291667">
+          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="134" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9432892">
+          <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+          <folding>
+            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

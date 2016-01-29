@@ -123,4 +123,14 @@ class Critic
     {
         return $this->review;
     }
+
+    /**
+     * ToString
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return strval($this->getId());
+    }
 }
