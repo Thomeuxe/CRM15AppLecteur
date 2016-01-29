@@ -78,7 +78,7 @@ easy_admin:
         Critiques:
             label: 'Critiques'
             class: AppBundle\Entity\Critic
-        Réservations:
+        Reservations:
             label: "Réservation page d'accueil"
             class: AppBundle\Entity\Booking
 

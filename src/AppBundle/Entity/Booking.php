@@ -40,7 +40,7 @@ class Booking
      *
      * @ORM\Column(name="valid", type="boolean", nullable=false)
      */
-    private $valid = '0';
+    private $valid = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Review", inversedBy="bookings")

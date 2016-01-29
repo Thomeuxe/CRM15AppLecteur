@@ -30,8 +30,8 @@ class Critic
      * @Assert\Range(
      *      min = 0,
      *      max = 5,
-     *      minMessage = "You must be at least {{ limit }}cm tall to enter",
-     *      maxMessage = "You cannot be taller than {{ limit }}cm to enter"
+     *      minMessage = "You cannot set a score below {{ limit }}",
+     *      maxMessage = "You cannot set a score above {{ limit }}"
      * )
      */
     private $score;
@@ -139,6 +139,6 @@ class Critic
      */
     public function __toString()
     {
-        return strval($this->getId());
+        return strval($this->getScore()) . '/5';
     }
 }
