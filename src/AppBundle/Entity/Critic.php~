@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Critic
@@ -22,9 +23,16 @@ class Critic
     private $id;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="score", type="boolean", nullable=false)
+     * @ORM\Column(name="score", type="integer", nullable=false)
+     *
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 5,
+     *      minMessage = "You must be at least {{ limit }}cm tall to enter",
+     *      maxMessage = "You cannot be taller than {{ limit }}cm to enter"
+     * )
      */
     private $score;
 
@@ -41,4 +49,96 @@ class Critic
      */
     private $review;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set score
+     *
+     * @param integer $score
+     *
+     * @return Critic
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return integer
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Critic
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set review
+     *
+     * @param \AppBundle\Entity\Review $review
+     *
+     * @return Critic
+     */
+    public function setReview(\AppBundle\Entity\Review $review)
+    {
+        $this->review = $review;
+
+        return $this;
+    }
+
+    /**
+     * Get review
+     *
+     * @return \AppBundle\Entity\Review
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    /**
+     * ToString
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return strval($this->getId());
+    }
 }

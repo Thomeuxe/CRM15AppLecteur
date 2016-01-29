@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7afc5779-9a9c-4dd4-8f65-cf4f75bb5fdd" name="Default" comment="Reviews : Add show view">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
     </list>
     <ignored path="appLecteur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,23 +96,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Critic.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Critic.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.291667">
-              <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="134" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="4.285714">
+              <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Booking.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Booking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9432892">
-              <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+            <state vertical-scroll-proportion="-99.375">
+              <caret line="164" column="32" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
               <folding>
-                <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
+                <marker date="1454078807000" expanded="true" signature="150:885" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -147,8 +147,9 @@
         <option value="$PROJECT_DIR$/app/Resources/views/review/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ReviewsController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Review.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
+        <option value="$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/BooleanType.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Critic.php" />
       </list>
     </option>
   </component>
@@ -530,7 +531,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -539,7 +542,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
-            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
+            <marker date="1454078807000" expanded="true" signature="150:885" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -578,7 +581,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -587,7 +592,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
           <folding>
-            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
+            <marker date="1454078807000" expanded="true" signature="150:885" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -760,20 +765,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.291667">
-          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="134" selection-end-column="5" />
+        <state vertical-scroll-proportion="-99.375">
+          <caret line="164" column="32" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
+          <folding>
+            <marker date="1454078807000" expanded="true" signature="150:885" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/BooleanType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28355387">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Critic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9432892">
-          <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+        <state vertical-scroll-proportion="4.285714">
+          <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
           <folding>
-            <marker date="1454077790000" expanded="true" signature="150:885" placeholder="{...}" />
+            <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

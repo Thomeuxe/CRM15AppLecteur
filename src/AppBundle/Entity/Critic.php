@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Critic
@@ -22,9 +23,16 @@ class Critic
     private $id;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="score", type="boolean", nullable=false)
+     * @ORM\Column(name="score", type="integer", nullable=false)
+     *
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 5,
+     *      minMessage = "You cannot set a score below {{ limit }}",
+     *      maxMessage = "You cannot set a score above {{ limit }}"
+     * )
      */
     private $score;
 
@@ -55,7 +63,7 @@ class Critic
     /**
      * Set score
      *
-     * @param boolean $score
+     * @param integer $score
      *
      * @return Critic
      */
@@ -69,7 +77,7 @@ class Critic
     /**
      * Get score
      *
-     * @return boolean
+     * @return integer
      */
     public function getScore()
     {
@@ -131,6 +139,6 @@ class Critic
      */
     public function __toString()
     {
-        return strval($this->getId());
+        return strval($this->getScore()) . '/5';
     }
 }
