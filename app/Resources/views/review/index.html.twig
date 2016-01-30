@@ -13,7 +13,7 @@
                     </a>
                 </div>
                 <div class="col-sm-8">
-                    <h3 class="title">{{ review.title }}</h3>
+                    <h3 class="title"><a href="{{ path('review_show', {'id': review.id}) }}" class="">{{ review.title }}</a></h3>
                     <p class="text-muted"><span class="glyphicon glyphicon-lock"></span> Available Exclusively for Premium Members</p>
 
                     <p>
