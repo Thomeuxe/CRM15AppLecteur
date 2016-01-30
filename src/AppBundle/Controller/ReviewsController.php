@@ -35,6 +35,10 @@ class ReviewsController extends Controller
             ->getRepository('AppBundle:Review')
             ->findOneById($id);
 
+        if (!$review) {
+            throw $this->createNotFoundException('This review does not exist');
+        }
+
         return $this->render('review/show.html.twig', [
             'review' => $review,
         ]);
