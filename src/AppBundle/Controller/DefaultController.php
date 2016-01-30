@@ -14,9 +14,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $featuredReview = $this->getDoctrine()
+          ->getRepository('AppBundle:Review')
+          ->findOneFeatured();
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'base_dir'       => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'featuredReview' => $featuredReview
         ]);
     }
 }
