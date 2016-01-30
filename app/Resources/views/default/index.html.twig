@@ -4,8 +4,8 @@
     <div class="container">
         <div class="jumbotron">
             <h1>{{ featuredReview.title }}</h1>
-            <p>{{ featuredReview.synopsis }}</p>
-            <p><a href="#" class="btn btn-primary">Découvrir la fiche</a></p>
+            <p>{{ featuredReview.synopsis|truncate(140, true) }}</p>
+            <p><a href="{{ path('review_show', {'id': featuredReview.id}) }}" class="btn btn-primary">Découvrir la fiche</a></p>
         </div>
         home
     </div>

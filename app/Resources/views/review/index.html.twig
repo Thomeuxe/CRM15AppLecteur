@@ -17,10 +17,7 @@
                     <p class="text-muted"><span class="glyphicon glyphicon-lock"></span> Available Exclusively for Premium Members</p>
 
                     <p>
-                        {% set excerpt = review.synopsis|raw|striptags|split(' ') %}
-                        {% set excerptMaxLength = 30 %}
-
-                        {{ excerpt|slice(1, excerptMaxLength)|join(' ') }}{% if(excerpt|length > excerptMaxLength) %}...{% endif %}
+                        {{ review.synopsis|truncate(140, true) }}
                     </p>
 
                     <p class="text-muted">Publiée par <a href="#">{{ review.user.username }}</a></p>
