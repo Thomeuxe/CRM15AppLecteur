@@ -81,6 +81,10 @@ easy_admin:
         Reservations:
             label: "Réservation page d'accueil"
             class: AppBundle\Entity\Booking
+        Utilisateurs:
+            label: "Utilisateurs"
+            class: UserBundle\Entity\User
+            disabled_actions: ['show', 'new', 'delete']
 
 
 fos_user:
