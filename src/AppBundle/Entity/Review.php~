@@ -120,6 +120,23 @@ class Review
     }
 
     /**
+     * Get excerpt
+     *
+     * @param integer $length
+     * @return string
+     */
+    public function getExcerpt($length)
+    {
+        $excerpt = $this->synopsis;
+        if (strlen($this->synopsis) > $this->$length) {
+            $excerpt = substr($excerpt, 0, $length);
+            $excerpt = substr($excerpt,0,strrpos($excerpt," "));
+            $excerpt = $excerpt . '...';
+        }
+        return $excerpt;
+    }
+
+    /**
      * Add critic
      *
      * @param \AppBundle\Entity\Critic $critic

@@ -40,7 +40,7 @@ class Booking
      *
      * @ORM\Column(name="valid", type="boolean", nullable=false)
      */
-    private $valid = '0';
+    private $valid = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Review", inversedBy="bookings")
@@ -164,6 +164,6 @@ class Booking
      */
     public function __toString()
     {
-        return strval($this->getId());
+        return 'Du ' . $this->getStartdate()->format('d/m/Y') . ' au ' . $this->getEnddate()->format('d/m/Y');
     }
 }

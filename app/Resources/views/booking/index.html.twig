@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Réservation</h1>
+            <p>Réservez les plages de dates pour mettre en avant vos fiches de lectures.</p>
+        </div>
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <fieldset class="form-group">
+            {{ form_row(form.review, { 'attr': {'class': 'form-control'} }) }}
+            <small class="text-muted">Vous pouvez demander plusieurs réservation par fiche</small>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form_row(form.startdate, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ form_row(form.enddate, { 'attr': {'class': 'form-control', 'disabled': 'disabled'} }) }}
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+        </fieldset>
+
+        {{ form_widget(form.save, { 'label': 'Proposer la réservation', 'attr': {'class': 'btn btn-primary' } }) }}
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-ui/themes/base/datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/datepicker.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/vendor/jquery-ui/ui/core.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-ui/ui/datepicker.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-ui/ui/i18n/datepicker-fr.js') }}"></script>
+    <script src="{{ asset('assets/js/bookings.js') }}"></script>
+{% endblock %}
