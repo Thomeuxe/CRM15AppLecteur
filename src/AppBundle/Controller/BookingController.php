@@ -28,11 +28,23 @@ class BookingController extends Controller
 
         $booking = new Booking();
 
-        $form = $this->createForm(BookingType::class);
+        $form = $this->createForm(BookingType::class, $booking);
 
         $form->handleRequest($request);
 
         $user = $this->getUser();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($booking);
+            $em->flush();
+
+            return $this->render('booking/index.html.twig', [
+                'form' => $form->createView(),
+                'valid' => true
+            ]);
+        }
 
         $form->remove("review");
 
@@ -50,12 +62,6 @@ class BookingController extends Controller
                 }
             },
         ));
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // ... perform some action, such as saving the task to the database
-
-            die("Form submitted");
-        }
 
         return $this->render('booking/index.html.twig', [
             'form' => $form->createView()

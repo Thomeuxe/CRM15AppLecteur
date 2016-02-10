@@ -8,6 +8,10 @@
             <p>Réservez les plages de dates pour mettre en avant vos fiches de lectures.</p>
         </div>
 
+        {% if valid  is defined %}
+            <div class="alert alert-success" role="alert">Votre demande de réservation a bien été enregistrée. <a href="{{ path('app_booking_index') }}">Voir mes réservations</a></div>
+        {% endif %}
+
         {{ form_start(form) }}
         {{ form_errors(form) }}
 
