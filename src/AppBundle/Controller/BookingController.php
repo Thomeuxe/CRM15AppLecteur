@@ -40,7 +40,7 @@ class BookingController extends Controller
             $em->persist($booking);
             $em->flush();
 
-            return $this->render('booking/index.html.twig', [
+            return $this->render('booking/add.html.twig', [
                 'form' => $form->createView(),
                 'valid' => true
             ]);
@@ -63,7 +63,7 @@ class BookingController extends Controller
             },
         ));
 
-        return $this->render('booking/index.html.twig', [
+        return $this->render('booking/add.html.twig', [
             'form' => $form->createView()
         ]);
     }

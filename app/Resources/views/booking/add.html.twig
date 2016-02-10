@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 {% block body %}
     <div class="container">
 
@@ -8,12 +10,7 @@
             <p>Réservez les plages de dates pour mettre en avant vos fiches de lectures.</p>
         </div>
 
-        {% if valid  is defined %}
-            <div class="alert alert-success" role="alert">Votre demande de réservation a bien été enregistrée. <a href="{{ path('app_booking_index') }}">Voir mes réservations</a></div>
-        {% endif %}
-
         {{ form_start(form) }}
-        {{ form_errors(form) }}
 
         <fieldset class="form-group">
             {{ form_row(form.review, { 'attr': {'class': 'form-control'} }) }}
@@ -33,6 +30,8 @@
 
         <fieldset class="form-group">
         </fieldset>
+
+        {{ form_rest(form) }}
 
         {{ form_widget(form.save, { 'label': 'Proposer la réservation', 'attr': {'class': 'btn btn-primary' } }) }}
 
