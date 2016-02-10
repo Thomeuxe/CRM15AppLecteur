@@ -3,12 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Booking;
+use AppBundle\Form\BookingType;
+use Doctrine\ORM\EntityRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * @Route("/booking")
@@ -17,6 +18,7 @@ class BookingController extends Controller
 {
     /**
      * @Route("/")
+     * @Security("has_role('ROLE_EDITOR')")
      */
     public function indexAction(Request $request)
     {
@@ -26,24 +28,28 @@ class BookingController extends Controller
 
         $booking = new Booking();
 
-        $form = $this->createFormBuilder($booking)
-            ->add('startdate', DateType::class, array(
-                'widget' => 'single_text',
-                'html5'  => false,
-                'format' => 'dd/MM/yyyy',
-                'attr' => array('class'=>'form-control')
-            ))
-            ->add('enddate', DateType::class, array(
-                'widget' => 'single_text',
-                'html5'  => false,
-                'format' => 'dd/MM/yyyy',
-                'attr' => array('class'=>'form-control')
-            ))
-            ->add('review')
-            ->add('save', SubmitType::class)
-            ->getForm();
+        $form = $this->createForm(BookingType::class);
 
         $form->handleRequest($request);
+
+        $user = $this->getUser();
+
+        $form->remove("review");
+
+        $form->add('review', EntityType::class, array(
+            'class' => 'AppBundle:Review',
+            'query_builder' => function (EntityRepository $er) use ($user) {
+                $qb = $er->createQueryBuilder('r');
+                if(null != $user) {
+                    return $qb
+                        ->where($qb->expr()->eq('r.user', $user->getId()))
+                        ->orderBy('r.title', 'ASC');
+                } else {
+                    return $qb
+                        ->orderBy('r.title', 'ASC');
+                }
+            },
+        ));
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
