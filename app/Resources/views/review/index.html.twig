@@ -20,7 +20,7 @@
                         {{ review.synopsis|truncate(140, true) }}
                     </p>
 
-                    <p class="text-muted">Publiée par <a href="#">{{ review.user.username }}</a></p>
+                    <p class="text-muted">Publiée par <a href="{{ path('review_user', {username: review.user.username}) }}">{{ review.user.username }}</a></p>
 
                 </div>
             </div>

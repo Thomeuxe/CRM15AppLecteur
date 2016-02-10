@@ -40,9 +40,10 @@ class BookingController extends Controller
             $em->persist($booking);
             $em->flush();
 
+            $this->addFlash('notice', 'Votre demande de réservation a bien été prise en compte !');
+
             return $this->render('booking/add.html.twig', [
-                'form' => $form->createView(),
-                'valid' => true
+                'form' => $form->createView()
             ]);
         }
 

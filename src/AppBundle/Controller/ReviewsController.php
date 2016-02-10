@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\User;
 
 /**
  * @Route("/fiches")
@@ -67,6 +68,8 @@ class ReviewsController extends Controller
             $em->persist($review);
             $em->flush();
 
+            $this->addFlash('notice', 'Votre fiche lecture a bien été crée !');
+
             return $this->render('review/add.html.twig', [
                 'form' => $form->createView()
             ]);
@@ -74,6 +77,22 @@ class ReviewsController extends Controller
 
         return $this->render('review/add.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/{username}", name="review_user")
+     */
+    public function showFromUserAction($username)
+    {
+        $user = $this->getDoctrine()
+            ->getRepository('UserBundle:User')
+            ->findOneByUsernameCanonical($username);
+
+        $reviews = $user->getReviews();
+
+        return $this->render('review/index.html.twig', [
+            'reviews' => $reviews
         ]);
     }
 }

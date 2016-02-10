@@ -10,6 +10,14 @@
 
     </head>
     <body>
+
+    {% for flash_message in app.session.flashbag.get('notice') %}
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ flash_message }}
+    </div>
+    {% endfor %}
+
         <div class="container">
 
             <!-- Static navbar -->
@@ -35,8 +43,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gérer mes fiches <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-header">Mes fiches</li>
-                                    <li><a href="#">Publier une fiche</a></li>
-                                    <li><a href="#">Toutes mes fiches</a></li>
+                                    <li><a href="{{ path('review_add') }}">Publier une fiche</a></li>
+                                    <li><a href="{{ path('review_user', {username: app.user.username}) }}">Toutes mes fiches</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header">Mes réservations</li>
                                     <li><a href="#">En attente <span class="badge">4</span></a></li>
