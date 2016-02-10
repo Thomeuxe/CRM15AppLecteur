@@ -68,4 +68,20 @@ class BookingController extends Controller
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/list")
+     * @Security("has_role('ROLE_EDITOR')")
+     */
+    public function listAction() {
+        $user = $this->getUser();
+
+        $bookings = $this->getDoctrine()
+            ->getRepository('AppBundle:Booking')
+            ->findByUser($user);
+
+        return $this->render('booking/list.html.twig', [
+            'bookings' => $bookings
+        ]);
+    }
 }

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% for booking in bookings %}
+            <div class="row">
+                {{ booking }}
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
