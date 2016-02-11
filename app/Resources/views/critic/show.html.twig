@@ -1,0 +1,9 @@
+<div>
+    <blockquote>
+        {% for i in 1..5 %}
+            <span class="glyphicon glyphicon-star{% if i > critic.score %}-empty{% endif %}" aria-hidden="true"></span>
+        {% endfor %}
+        <p>{{ critic.content }}</p>
+        <footer>Publié par <cite title="Source Title">{{ critic.user.username }}</cite></footer>
+    </blockquote>
+</div>

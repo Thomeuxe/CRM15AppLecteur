@@ -28,6 +28,11 @@ class User extends BaseUser
     private $reviews;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Critic", mappedBy="user")
+     */
+    private $critics;
+
+    /**
      * @return mixed
      */
     public function getReviews()

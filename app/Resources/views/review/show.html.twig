@@ -10,12 +10,19 @@
                      class="img-responsive img-rounded">
             </div>
             <div class="col-sm-12">
-                <h3 class="title">{{ review.title }}</h3>
+                <h1 class="title">{{ review.title }}</h1>
                 <p class="text-muted">Publiée par <a href="#">{{ review.user.username }}</a></p>
 
                 <p>{{ review.synopsis }}</p>
             </div>
         </div>
+
+        <hr>
+
+        <h2>Critiques</h2>
+        {% for critic in review.critics %}
+            {{ include('critic/show.html.twig', { 'critic': critic }) }}
+        {% endfor %}
     </div>
 {% endblock %}
 
