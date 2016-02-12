@@ -98,7 +98,11 @@ easy_admin:
         Utilisateurs:
             label: "Utilisateurs"
             class: UserBundle\Entity\User
-            disabled_actions: ['show', 'new', 'delete']
+            form:
+                fields:
+                    - { property: 'username' }
+                    - { property: 'email' }
+                    - { property: 'roles' }
 
 
 fos_user:
