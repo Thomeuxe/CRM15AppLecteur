@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Les fiches de {{ user.username }}</h1>
+        <hr>
+    </div>
+    {% if reviews|length > 0 %}
+        {% include ':review:list.html.twig' with {'reviews': reviews} %}
+    {% else %}
+        <div class="container">
+            <div class="well well-sm">{{ user.username }} n'a pas encore publié de fiche de lecture...</div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

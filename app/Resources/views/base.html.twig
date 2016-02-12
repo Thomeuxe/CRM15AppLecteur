@@ -1,87 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}AppLecteur{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}AppLecteur{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
-        {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    {% block stylesheets %}{% endblock %}
 
-    </head>
-    <body>
+</head>
+<body>
 
-    {% for flash_message in app.session.flashbag.get('notice') %}
+{% for flash_message in app.session.flashbag.get('notice') %}
     <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ flash_message }}
     </div>
-    {% endfor %}
+{% endfor %}
 
-        <div class="container">
+<div class="container">
 
-            <!-- Static navbar -->
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ path('app_default_index') }}">AppLecteur</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li {% if app.request.get('_route') == 'app_default_index' %} class="active"{% endif %}><a href="{{ path('app_default_index') }}">Accueil</a></li>
-                            <li {% if app.request.get('_route') == 'app_reviews_index' %} class="active"{% endif %}><a href="{{ path('app_reviews_index') }}">Toutes les fiches</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('app_default_index') }}">AppLecteur</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li {% if app.request.get('_route') == 'app_default_index' %} class="active"{% endif %}><a
+                                href="{{ path('app_default_index') }}">Accueil</a></li>
+                    <li {% if app.request.get('_route') == 'app_reviews_index' %} class="active"{% endif %}><a
+                                href="{{ path('app_reviews_index') }}">Toutes les fiches</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% if is_granted("ROLE_EDITOR") %}
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gérer mes fiches <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Gérer mes fiches <span
+                                            class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-header">Mes fiches</li>
                                     <li><a href="{{ path('review_add') }}">Publier une fiche</a></li>
-                                    <li><a href="{{ path('review_user', {username: app.user.username}) }}">Toutes mes fiches</a></li>
+                                    <li><a href="{{ path('review_user', {username: app.user.username}) }}">Toutes mes
+                                            fiches</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header">Mes réservations</li>
                                     <li><a href="#">En attente <span class="badge">4</span></a></li>
                                     <li><a href="#">Refusées récemment <span class="badge">4</span></a></li>
                                     <li><a href="{{ path('app_booking_list') }}">Toutes mes réservations</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ path('app_booking_index') }}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Réserver une date</a></li>
+                                    <li><a href="{{ path('app_booking_index') }}"><span
+                                                    class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                            Réserver une date</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('fos_user_profile_show') }}">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
-                                    <li><a href="{{ path('fos_user_profile_edit') }}">Modifier mes informations</a></li>
-                                    {% if is_granted("ROLE_ADMIN") %}
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="{{ path('admin') }}">Administration</a></li>
-                                    {% endif %}
+                        {% endif %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('fos_user_profile_show') }}">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a>
+                                </li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}">Modifier mes informations</a></li>
+                                {% if is_granted("ROLE_ADMIN") %}
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
-                                </ul>
-                            </li>
-                            {% else %}
-                                <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
-                                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
-                            {% endif %}
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div><!--/.container-fluid -->
-            </nav>
-        </div> <!-- /container -->
+                                    <li><a href="{{ path('admin') }}">Administration</a></li>
+                                {% endif %}
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+</div> <!-- /container -->
 
-        {% block body %}{% endblock %}
+{% block body %}{% endblock %}
 
-        <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
-        {% block javascripts %}{% endblock %}
-    </body>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

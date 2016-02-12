@@ -4,6 +4,6 @@
             <span class="glyphicon glyphicon-star{% if i > critic.score %}-empty{% endif %}" aria-hidden="true"></span>
         {% endfor %}
         <p>{{ critic.content }}</p>
-        <footer>Publié par <cite title="Source Title">{{ critic.user.username }}</cite></footer>
+        <footer>Publié par <cite title="Source Title"><a href="{{ path('review_user', {'username': critic.user.username}) }}">{{ critic.user.username }}</a></cite></footer>
     </blockquote>
 </div>

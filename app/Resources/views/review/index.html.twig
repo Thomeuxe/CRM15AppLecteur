@@ -1,31 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        {% for review in reviews %}
-            <div class="row">
-                <div class="col-sm-4">
-                    <a href="{{ path('review_show', {'id': review.id}) }}" class="">
-                        {% if review.imageName %}
-                            <img src="{{ vich_uploader_asset(review, 'imageFile') }}" alt="{{ review.title }}" class="img-responsive img-rounded" />
-                        {% endif %}
-                    </a>
-                </div>
-                <div class="col-sm-8">
-                    <h3 class="title"><a href="{{ path('review_show', {'id': review.id}) }}" class="">{{ review.title }}</a></h3>
-                    <p class="text-muted"><span class="glyphicon glyphicon-comment"></span> {{ review.critics|length }} critiques d'utilisateurs</p>
-
-                    <p>
-                        {{ review.synopsis|truncate(140, true) }}
-                    </p>
-
-                    <p class="text-muted">Publiée par <a href="{{ path('review_user', {username: review.user.username}) }}">{{ review.user.username }}</a></p>
-
-                </div>
-            </div>
-            <hr>
-        {% endfor %}
-    </div>
+    {% include ':review:list.html.twig' with reviews %}
 {% endblock %}
 
 {% block stylesheets %}

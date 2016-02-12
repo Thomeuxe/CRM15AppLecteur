@@ -4,6 +4,8 @@
     <div class="container">
         <div class="jumbotron">
             <h1><small>La fiche du moment</small><br>{{ featuredReview.title }}</h1>
+            <small>Publiée par <a href="{{ path('review_user', {'username': featuredReview.user.username }) }}">{{ featuredReview.user.username }}</a></small>
+            <hr>
             <p>{{ featuredReview.synopsis|truncate(140, true) }}</p>
             <p><a href="{{ path('review_show', {'id': featuredReview.id}) }}" class="btn btn-primary">Découvrir la fiche</a></p>
         </div>

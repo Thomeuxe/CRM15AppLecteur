@@ -116,9 +116,14 @@ class ReviewsController extends Controller
             ->getRepository('UserBundle:User')
             ->findOneByUsernameCanonical($username);
 
+        if(!$user) {
+            throw $this->createNotFoundException('The user does not exist');
+        }
+
         $reviews = $user->getReviews();
 
-        return $this->render('review/index.html.twig', [
+        return $this->render('review/user.html.twig', [
+            'user' => $user,
             'reviews' => $reviews
         ]);
     }
