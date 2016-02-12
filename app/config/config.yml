@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    app.path.review_images: /Gobelins/PHP/appLecteur/web/uploads/images/reviews
 
 framework:
     #esi:             ~
@@ -69,12 +70,25 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        review_image:
+            uri_prefix:         %app.path.review_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/reviews
+
 easy_admin:
     site_name: 'AppLecteur'
     entities:
         Reviews:
             label: 'Fiche Lecture'
             class: AppBundle\Entity\Review
+            form:
+                fields:
+                    - 'title'
+                    - 'synopsis'
+                    - { property: 'imageFile', type: 'Vich\UploaderBundle\Form\Type\VichImageType' }
         Critiques:
             label: 'Critiques'
             class: AppBundle\Entity\Critic

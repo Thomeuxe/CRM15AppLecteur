@@ -6,10 +6,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     <a href="{{ path('review_show', {'id': review.id}) }}" class="">
-                        <img src="http://placehold.it/360X200"
-                             srcset="http://placehold.it/360X200 1x,
-                                     http://placehold.it/720X400 2x"
-                             class="img-responsive">
+                        {% if review.imageName %}
+                            <img src="{{ vich_uploader_asset(review, 'imageFile') }}" alt="{{ review.title }}" class="img-responsive img-rounded" />
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-sm-8">

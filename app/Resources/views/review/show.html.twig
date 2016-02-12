@@ -4,10 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <img src="https://unsplash.it/200/300"
-                     srcset="http://placehold.it/360X200 1x,
-                             http://placehold.it/720X400 2x"
-                     class="img-responsive img-rounded">
+                {% if review.imageName %}
+                <img src="{{ vich_uploader_asset(review, 'imageFile') }}" alt="{{ review.title }}" class="img-responsive img-rounded" />
+                {% endif %}
             </div>
             <div class="col-sm-12">
                 <h1 class="title">{{ review.title }}</h1>
