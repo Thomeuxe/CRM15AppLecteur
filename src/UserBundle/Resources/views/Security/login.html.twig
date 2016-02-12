@@ -8,20 +8,48 @@
     {% endif %}
 
     <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
-        <h2 class="form-signin-heading">{{ 'sign in'|trans }}</h2>
+        <h2 class="form-signin-heading">Connexion</h2>
 
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
         <label for="username" class="sr-only">{{ 'security.login.username'|trans }}</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" id="inputEmail" class="form-control" placeholder="{{ 'security.login.username'|trans }}" required autofocus>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"
+               id="inputEmail" class="form-control" placeholder="{{ 'security.login.username'|trans }}" required
+               autofocus>
         <label for="password" class="sr-only">{{ 'security.login.password'|trans }}</label>
-        <input id="password" name="_password" required="required" type="password" class="form-control" placeholder="Password" required>
+        <input id="password" name="_password" required="required" type="password" class="form-control"
+               placeholder="Password" required>
         <div class="checkbox">
             <label>
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}
+                <input type="checkbox" id="remember_me" name="_remember_me"
+                       value="on"/> {{ 'security.login.remember_me'|trans }}
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="_submit"
+                name="_submit">{{ 'security.login.submit'|trans }}</button>
+        <hr>
+        <p>
+            <small>
+                <strong>Compte admin</strong><br>
+                <span class="label label-info">Login</span> admin<br>
+                <span class="label label-info">Password</span> password
+            </small>
+        </p>
+
+        <p>
+            <small>
+                <strong>Compte éditeur</strong><br>
+                <span class="label label-info">Login</span> editor<br>
+                <span class="label label-info">Password</span> password
+            </small>
+        </p>
+
+        <p>
+            <small>
+                <strong>Compte visiteur</strong><br>
+                On va pas tout donner quand même, <a href="{{ path('fos_user_registration_register') }}">c'est juste là</a>
+            </small>
+        </p>
     </form>
 {% endblock fos_user_content %}
 
