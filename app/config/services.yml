@@ -9,3 +9,5 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+    app.critic:
+        class: AppBundle\Entity\Critic

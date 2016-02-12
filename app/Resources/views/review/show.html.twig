@@ -16,12 +16,22 @@
             </div>
         </div>
 
-        <hr>
 
-        <h2>Critiques</h2>
-        {% for critic in review.critics %}
-            {{ include('critic/show.html.twig', { 'critic': critic }) }}
-        {% endfor %}
+        {% if review.critics|length > 0 %}
+            <hr>
+            <h2>Critiques</h2>
+            {% for critic in review.critics %}
+                {{ include('critic/show.html.twig', { 'critic': critic }) }}
+            {% endfor %}
+        {% endif %}
+        <hr>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <h2>Ajouter une critique</h2>
+            {% form_theme criticForm 'bootstrap_3_layout.html.twig' %}
+            {{ form(criticForm) }}
+        {% else %}
+            <p><a href="{{ path('fos_user_registration_register') }}">Inscrivez-vous</a> ou <a href="{{ path('fos_user_security_login') }}">connectez-vous</a> pour publier une critique.</p>
+        {% endif %}
     </div>
 {% endblock %}
 

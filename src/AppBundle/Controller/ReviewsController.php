@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Critic;
 use AppBundle\Entity\Review;
+use AppBundle\Form\CriticType;
 use AppBundle\Form\ReviewType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -32,8 +34,11 @@ class ReviewsController extends Controller
 
     /**
      * @Route("/{id}", requirements={"id" = "\d+"}, name="review_show")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showAction($id)
+    public function showAction(Request $request, $id)
     {
         $review = $this->getDoctrine()
             ->getRepository('AppBundle:Review')
@@ -43,8 +48,30 @@ class ReviewsController extends Controller
             throw $this->createNotFoundException('This review does not exist');
         }
 
+        $critic = new Critic();
+
+        $critic->setReview($review);
+
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $critic->setUser($this->getUser());
+        }
+
+        $criticForm = $this->createForm(CriticType::class, $critic);
+
+        $criticForm->handleRequest($request);
+
+        if ($criticForm->isSubmitted() && $criticForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($critic);
+            $em->flush();
+
+            $this->addFlash('notice', 'Votre critique a bien été publiée !');
+        }
+
         return $this->render('review/show.html.twig', [
             'review' => $review,
+            'criticForm' => $criticForm->createView()
         ]);
     }
 

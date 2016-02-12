@@ -24,11 +24,13 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $reviews;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Critic", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $critics;
 

@@ -40,11 +40,13 @@ class Review
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Critic", mappedBy="review")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $critics;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="review")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $bookings;
 
